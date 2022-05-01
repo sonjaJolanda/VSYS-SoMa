@@ -1,10 +1,5 @@
-package B;
+package B.Working;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -19,14 +14,16 @@ public class ClientMain {
 
     public static void main(String args[]) {
         try {
-            client = new MySocketClient(hostname, port);
+            client = new MySocketClient(hostname, port, "The1AndOnlyClient");
 
             Thread sendRequestsHandler = new Thread(() -> {
                 while (!isInput) {
                     try {
-                        System.out.println(client.sendAndReceive(counter));
-                        System.out.println("---------------> Sent request (" + counter + ")");
-                        Thread.sleep(1000);
+                        client.sendAndReceive(counter);
+                        //System.out.println(client.sendAndReceive(counter));
+                        long randomTimeToWait = (long) (Math.random() * 2000);
+                        //System.out.println("--> t: " + randomTimeToWait);
+                        Thread.sleep(randomTimeToWait);
                     } catch (Exception e) {
                         System.out.println("!!!!!!!!!!! ERROR: " + e.getMessage());
                         e.printStackTrace();
@@ -37,10 +34,14 @@ public class ClientMain {
 
             sendRequestsHandler.start();
             reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Press enter to stop the communication");
+
+            System.out.println("Press any key to stop the communication");
             if (reader.readLine() != null) isInput = true;
             sendRequestsHandler.join();
+
+            System.out.print("Disconnect ... ");
             client.disconnect();
+            System.out.println("done.");
         } catch (Exception e) {
             e.printStackTrace();
         }
