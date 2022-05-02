@@ -1,4 +1,4 @@
-package B_2.B_1;
+package B_2;
 
 import java.io.IOException;
 
