@@ -1,50 +1,48 @@
 package B.Working;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ClientMain {
-    private static final int port = 1234;
+    private static final int portOne = 1234;
+    private static final int portTwo = 5678;
     private static final String hostname = "localhost";
-    private static MySocketClient client;
+    private static MySocketClient clientOne;
+    private static MySocketClient clientTwo;
     private static BufferedReader reader;
-
-    private static boolean isInput = false;
-    private static int counter = 0;
 
     public static void main(String args[]) {
         try {
-            client = new MySocketClient(hostname, port, "The1AndOnlyClient");
+            clientOne = new MySocketClient(hostname, portOne, "The1AndOnlyClient");
+            clientTwo = new MySocketClient(hostname, portTwo, "The2AndNotSoOnlyClient");
 
-            Thread sendRequestsHandler = new Thread(() -> {
-                while (!isInput) {
-                    try {
-                        client.sendAndReceive(counter);
-                        //System.out.println(client.sendAndReceive(counter));
-                        long randomTimeToWait = (long) (Math.random() * 2000);
-                        //System.out.println("--> t: " + randomTimeToWait);
-                        Thread.sleep(randomTimeToWait);
-                    } catch (Exception e) {
-                        System.out.println("!!!!!!!!!!! ERROR: " + e.getMessage());
-                        e.printStackTrace();
-                    }
-                    counter++;
-                }
-            });
+            Thread sendRequestsOne = new Thread(() -> clientOne.sendAndReceiveUntilPressedKey());
+            Thread sendRequestsTwo = new Thread(() -> clientOne.sendAndReceiveUntilPressedKey());
+            sendRequestsOne.start();
+            sendRequestsTwo.start();
 
-            sendRequestsHandler.start();
-            reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("There are multiple clients sending requests to the server: \n" + //
+                    "- " + clientOne.getClientIdentifier() + "(1)\n" + //
+                    "- " + clientTwo.getClientIdentifier() + "(2)\n" + //
+                    "To stop them, just type in the clients number");
 
-            System.out.println("Press any key to stop the communication");
-            if (reader.readLine() != null) isInput = true;
-            sendRequestsHandler.join();
+            stopRequestsThroughInput();
+            sendRequestsOne.join();
+            sendRequestsTwo.join();
 
-            System.out.print("Disconnect ... ");
-            client.disconnect();
-            System.out.println("done.");
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void stopRequestsThroughInput() throws IOException {
+        reader = new BufferedReader(new InputStreamReader(System.in));
+        if (reader.readLine().equals("1")) clientOne.stopRequests();
+        else if (reader.readLine().equals("2")) clientTwo.stopRequests();
+
+        if (!clientOne.isStopped() || !clientTwo.isStopped())
+            stopRequestsThroughInput();
     }
 
 }

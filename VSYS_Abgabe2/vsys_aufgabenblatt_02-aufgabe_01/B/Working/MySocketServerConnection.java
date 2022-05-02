@@ -10,6 +10,7 @@ public class MySocketServerConnection extends Thread {
     private Socket socket;
     private ObjectInputStream objectInputStream;
     private ObjectOutputStream objectOutputStream;
+    private String name;
 
     public MySocketServerConnection(Socket socket) throws IOException {
         this.socket = socket;
