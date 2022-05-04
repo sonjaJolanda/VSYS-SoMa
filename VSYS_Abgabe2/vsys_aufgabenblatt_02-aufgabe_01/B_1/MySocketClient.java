@@ -25,8 +25,8 @@ public class MySocketClient {
     }
 
     public String sendAndReceive() throws Exception {
-        objectOutputStream.writeObject(clientIdentifier + " with request " + counter++);
-        System.out.println("Client: send " + clientIdentifier + " with request " + counter);
+        objectOutputStream.writeObject(clientIdentifier + " with request " + counter);
+        System.out.println("Client: send " + clientIdentifier + " with request " + counter++);
         return "Client: received '" + (String) objectInputStream.readObject() + "'";
     }
 

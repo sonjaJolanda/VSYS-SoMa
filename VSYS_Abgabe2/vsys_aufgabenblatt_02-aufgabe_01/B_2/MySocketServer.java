@@ -20,6 +20,7 @@ public class MySocketServer {
     public void listen() {
         while (true) {
             try {
+
                 System.out.println("Server: listening on port " + port1 + " and on port " + port2);
 
                 Thread listenToSocket2 = new Thread(() -> {
