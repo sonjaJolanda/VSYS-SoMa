@@ -27,19 +27,27 @@ public class WebServerABC implements Runnable {
     }
 
     public static void main(String[] args) {
-        //------------- LOGGING -------------------
-        try {
-            fileHandler = new FileHandler("./MyLogFile.log");
-            logger.addHandler(fileHandler);
-            SimpleFormatter formatter = new SimpleFormatter();
-            fileHandler.setFormatter(formatter);
-        } catch (IOException ioe) {
-            System.err.println("Error creating logger : " + ioe.getMessage());
-        }
         //------------ CONNECTION USW. ----------------
         try {
-            ServerSocket serverConnect = new ServerSocket(PORT);
-            logger.info("Server started.\nListening for connections on port : " + PORT + " ...\n");
+
+            BufferedReader systemInput = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Please enter the name of the file in which this program logs:");
+            String fileName = systemInput.readLine();
+            //------------- LOGGING -------------------
+            try {
+                fileHandler = new FileHandler("./" + fileName + ".log");
+                logger.addHandler(fileHandler);
+                SimpleFormatter formatter = new SimpleFormatter();
+                fileHandler.setFormatter(formatter);
+            } catch (IOException ioe) {
+                System.err.println("Error creating logger : " + ioe.getMessage());
+            }
+
+            int port = getPortFromSystemInput(systemInput);
+            System.out.println("logging-file name: " + fileName + " and port: " + port);
+
+            ServerSocket serverConnect = new ServerSocket(port);
+            logger.info("Server started.\nListening for connections on port : " + port + " ...\n");
             while (true) {
                 WebServerABC myServer = new WebServerABC(serverConnect.accept());
                 Thread threadClientConnection = new Thread(myServer);
@@ -89,10 +97,10 @@ public class WebServerABC implements Runnable {
                 byte[] fileData = readFileData(file, fileLength);
 
                 logger.info("send header back \n");
-                outForClientViaSocket.println("HTTP/1.1 200 OK\r\n"); // send header
+                outForClientViaSocket.println("HTTP/1.1 200 OK\r\n");
                 outForClientViaSocket.flush();
                 logger.info("send html back \n");
-                requestedBinaryOutForClient.write(fileData, 0, fileLength); // send content
+                requestedBinaryOutForClient.write(fileData, 0, fileLength);
                 requestedBinaryOutForClient.flush();
 
                 logger.info("close all streams \n");
@@ -137,13 +145,28 @@ public class WebServerABC implements Runnable {
             int fileLength = (int) file.length();
             byte[] fileData = readFileData(file, fileLength);
 
-            outForClientViaSocket.println("HTTP/1.1 200 OK\r\n"); // send header
+            outForClientViaSocket.println("HTTP/1.1 404 NOT_FOUND\r\n"); // send header
             outForClientViaSocket.flush();
             requestedBinaryOutForClient.write(fileData, 0, fileLength);
             requestedBinaryOutForClient.flush();
         } catch (IOException ioe) {
             logger.warning("the file with info 'file not found' wasn't found!!!!!!!\n");
             ioe.printStackTrace();
+        }
+    }
+
+    private static int getPortFromSystemInput(BufferedReader systemInput) {
+        try {
+            System.out.println("Please enter the port:");
+            int port = Integer.valueOf(systemInput.readLine());
+            return port;
+        } catch (NumberFormatException nfe) {
+            System.out.println("Please enter a valid port.");
+            return getPortFromSystemInput(systemInput);
+        } catch (IOException ioe) {
+            logger.warning("there was an error when trying to get system input for the port!!!!\n");
+            ioe.printStackTrace();
+            return 8080;
         }
     }
 }
