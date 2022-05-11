@@ -3,7 +3,6 @@ package B;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -29,39 +28,22 @@ public class WebServerABC implements Runnable {
 
     public static void main(String[] args) {
         //------------ CONNECTION USW. ----------------
-        if (args.length != 4) {
-            System.err.println("Error: Please enter 2 parameters: -log <filename> and -port <port>!\n Your parameters: " + argsToString(args));
-            System.exit(50);
-        }
-        String fileName = null;
-        Integer port = null;
-
         try {
-            for (int i = 0; i < args.length; i++) {
-                if (args[i].matches("^-port$")) {
-                    port = Integer.valueOf(args[i + 1]);
-                    if (port > 65535) {
-                        System.exit(50);
-                    }
-                }
-                if (args[i].matches("^-log$")) {
-                    fileName = args[i + 1];
-                }
-            }
-            if (fileName == null || port == null) {
-                System.err.println("Error: Please enter 2 parameters: -log <filename> and -port <port>!\n Your parameters: " + argsToString(args));
-                System.exit(50);
-            }
 
+            BufferedReader systemInput = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Please enter the name of the file in which this program logs:");
+            String fileName = systemInput.readLine();
             //------------- LOGGING -------------------
             try {
                 fileHandler = new FileHandler("./" + fileName + ".log");
                 logger.addHandler(fileHandler);
-                fileHandler.setFormatter(new SimpleFormatter());
+                SimpleFormatter formatter = new SimpleFormatter();
+                fileHandler.setFormatter(formatter);
             } catch (IOException ioe) {
                 System.err.println("Error creating logger : " + ioe.getMessage());
             }
 
+            int port = getPortFromSystemInput(systemInput);
             System.out.println("logging-file name: " + fileName + " and port: " + port);
 
             ServerSocket serverConnect = new ServerSocket(port);
@@ -173,7 +155,7 @@ public class WebServerABC implements Runnable {
         }
     }
 
-/*    private static int getPortFromSystemInput(BufferedReader systemInput) {
+    private static int getPortFromSystemInput(BufferedReader systemInput) {
         try {
             System.out.println("Please enter the port:");
             int port = Integer.valueOf(systemInput.readLine());
@@ -186,13 +168,5 @@ public class WebServerABC implements Runnable {
             ioe.printStackTrace();
             return 8080;
         }
-    }*/
-
-    private static String argsToString(String[] args) {
-        String argsString = "";
-        for (String arg : args) {
-            argsString = argsString + arg + " ";
-        }
-        return argsString;
     }
 }

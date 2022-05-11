@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ac09258-bd7d-484f-89f7-e5c9ec35f2b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/VSYS-SoMa.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VSYS_Abgabe1/vsys_ab01-aufg2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VSYS_Abgabe2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/VSYS_Abgabe2/.idea/vsys_aufgabenblatt_02-aufgabe_01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../out/production/VSYS_Abgabe2/vsys_aufgabenblatt_02-aufgabe_01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_02.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/allclasses-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/allclasses-noframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/constant-values.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/deprecated-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/package-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/background.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/tab.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/titlebar.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/titlebar_end.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/Component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/Message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/class-use/Component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/class-use/Message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-frame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/serialized-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse_v12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rm.requestResponse.javadoc/src/A.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rm.requestResponse.javadoc/src/PrimeClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rm.requestResponse.javadoc/src/PrimeServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PrimeClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PrimeClientCorrect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PrimeServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/src/B/WebServerABC.java" beforeDir="false" afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02/src/B/WebServerABC.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="28vnbJVV3tfwkNHFP0eej4XATZ8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_aufgabenblatt_02-aufgabe_03\rm.requestResponse.javadoc\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_aufgabenblatt_02-aufgabe_03\rm.requestResponse.javadoc\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ac09258-bd7d-484f-89f7-e5c9ec35f2b2" name="Changes" comment="" />
+      <created>1652105997530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652105997530</updated>
+    </task>
+    <servers />
+  </component>
+</project>
