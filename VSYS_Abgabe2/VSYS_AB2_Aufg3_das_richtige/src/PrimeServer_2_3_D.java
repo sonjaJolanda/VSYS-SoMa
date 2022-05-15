@@ -4,11 +4,8 @@ import rm.requestResponse.Message;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PrimeServer_2_3_D {
@@ -20,8 +17,6 @@ public class PrimeServer_2_3_D {
 
     private ThreadPoolExecutor executorService = null;
     private LinkedList<RequestPair> requestPairs = new LinkedList<>();
-
-    private static long startTime = 0;
 
     PrimeServer_2_3_D(int port) {
         communication = new Component();
@@ -51,7 +46,9 @@ public class PrimeServer_2_3_D {
                 }
             }
         });
+        requestReceiver.start();
 
+        // ToDo THIS IS NEW
         Thread threadCounter = new Thread(() -> {
             int threadCountBefore = 0;
             while (true) {
@@ -68,8 +65,7 @@ public class PrimeServer_2_3_D {
         });
 
         executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
-        executorService.submit(requestReceiver);
-        executorService.submit(threadCounter);
+        executorService.submit(threadCounter); // ToDo THIS IS NEW
 
         while (true) {
             try {
@@ -124,7 +120,7 @@ public class PrimeServer_2_3_D {
         @Override
         public void run() {
             try {
-                System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                // System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
                 communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
             } catch (IOException e) {

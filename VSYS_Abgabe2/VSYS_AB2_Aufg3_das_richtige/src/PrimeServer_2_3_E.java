@@ -1,11 +1,11 @@
 import rm.requestResponse.Component;
 import rm.requestResponse.Message;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.logging.Logger;
 
 public class PrimeServer_2_3_E {
@@ -15,10 +15,8 @@ public class PrimeServer_2_3_E {
     private Component communication;
     private int port = PORT;
 
-    private ThreadPoolExecutor executorService = null;
+    private ExecutorService executorService = null;
     private LinkedList<RequestPair> requestPairs = new LinkedList<>();
-
-    private static long startTime = 0;
 
     PrimeServer_2_3_E(int port) {
         communication = new Component();
@@ -34,6 +32,26 @@ public class PrimeServer_2_3_E {
     }
 
     void listen() {
+        // ToDo THIS IS NEW
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Server executor type: Choose between 'SINGLE', 'CONSTANT' and 'DYNAMIC' > ");
+        String inputExecType = null;
+        try {
+            inputExecType = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (inputExecType.equals("CONSTANT")) {
+            executorService = Executors.newFixedThreadPool(5);
+            System.out.println("> Threadcount (fixed): " + 5);
+        } else if (inputExecType.equals("SINGLE")) {
+            executorService = Executors.newSingleThreadExecutor();
+            System.out.println("> Threadcount (fixed): " + 1);
+        } else if (inputExecType.equals("DYNAMIC"))
+            executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
+        else
+            executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
+
         Thread requestReceiver = new Thread(() -> {
             while (true) {
                 try {
@@ -48,24 +66,25 @@ public class PrimeServer_2_3_E {
                 }
             }
         });
+        requestReceiver.start();
 
         Thread threadCounter = new Thread(() -> {
-            int threadCountBefore = 0;
-            while (true) {
-                boolean isExecService = this.executorService != null;
-                boolean isDifferent = isExecService ? this.executorService.getActiveCount() != threadCountBefore : threadCountBefore != 0;
-                if (!isExecService && isDifferent) {
-                    threadCountBefore = 0;
-                    System.out.println("> Threadcount: " + 0 + printQueue());
-                } else if (isExecService && isDifferent) {
-                    threadCountBefore = this.executorService.getActiveCount();
-                    System.out.println("> Threadcount: " + this.executorService.getActiveCount() + printQueue());
+            if (this.executorService instanceof ThreadPoolExecutor executor) { // ToDo THIS IS NEW
+                int threadCountBefore = 0;
+                while (true) {
+                    boolean isExecService = this.executorService != null;
+                    boolean isDifferent = isExecService ? executor.getActiveCount() != threadCountBefore : threadCountBefore != 0;
+                    if (!isExecService && isDifferent) {
+                        threadCountBefore = 0;
+                        System.out.println("> Threadcount: " + 0 + printQueue());
+                    } else if (isExecService && isDifferent) {
+                        threadCountBefore = executor.getActiveCount();
+                        System.out.println("> Threadcount: " + executor.getActiveCount() + printQueue());
+                    }
                 }
             }
         });
 
-        executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
-        executorService.submit(requestReceiver);
         executorService.submit(threadCounter);
 
         while (true) {
@@ -121,7 +140,7 @@ public class PrimeServer_2_3_E {
         @Override
         public void run() {
             try {
-                System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                // System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
                 communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
             } catch (IOException e) {

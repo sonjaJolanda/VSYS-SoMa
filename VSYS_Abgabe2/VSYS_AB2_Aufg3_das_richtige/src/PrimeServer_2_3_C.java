@@ -3,13 +3,10 @@ import rm.requestResponse.Message;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PrimeServer_2_3_C {
@@ -21,12 +18,9 @@ public class PrimeServer_2_3_C {
 
     private LinkedList<RequestPair> requestPairs = new LinkedList<>();
 
-    private static long startTime = 0;
-
     PrimeServer_2_3_C(int port) {
         communication = new Component();
         if (port > 0) this.port = port;
-        setLogLevel(Level.FINER);
     }
 
     private boolean primeService(long number) {
@@ -37,20 +31,10 @@ public class PrimeServer_2_3_C {
         return true;
     }
 
-    void setLogLevel(Level level) {
-        for (Handler h : LOGGER.getLogger("").getHandlers()) h.setLevel(level);
-        LOGGER.setLevel(level);
-        LOGGER.info("Log level set to " + level);
-    }
-
     void listen() {
-        LOGGER.info("Listening on port " + port);
-
-
-        Thread receiver = new Thread(() -> {
+        Thread requestReceiver = new Thread(() -> {
             while (true) {
                 try {
-                    //System.out.println(">> receiving ...");
                     Message message = communication.receive(port, true, false);
                     Long newIncomingRequest = (Long) message.getContent();
                     Integer sendPort = message.getPort();
@@ -62,10 +46,12 @@ public class PrimeServer_2_3_C {
                 }
             }
         });
+        requestReceiver.start();
 
-        receiver.start();
+        // ToDo THIS IS NEW
         ExecutorService executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
 
+        // ToDo THIS IS NEW
         while (true) {
             try {
                 if (requestPairs.isEmpty())
@@ -96,17 +82,9 @@ public class PrimeServer_2_3_C {
                     LOGGER.warning("Wrong parameter passed ... '" + args[i] + "'");
             }
         }
-
-        System.out.println("\n\nnew PrimeServer");
         new PrimeServer_2_3_C(port).listen();
     }
-
-    private String time() {
-        if (startTime == 0) startTime = System.currentTimeMillis();
-        long milliSecs = System.currentTimeMillis() - startTime;
-        return " --> t: " + milliSecs;
-    }
-
+    
     private String printQueue() {
         if (requestPairs.isEmpty()) return " . . . []";
 
@@ -117,6 +95,7 @@ public class PrimeServer_2_3_C {
         return returnValue.substring(0, returnValue.length() - 2) + "]";
     }
 
+    // ToDo THIS IS NEW
     private class Calculate implements Runnable {
         RequestPair requestPair;
 
@@ -127,8 +106,8 @@ public class PrimeServer_2_3_C {
         @Override
         public void run() {
             try {
-                System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
-                communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
+                // System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                communication.send(new Message("localhost", port, primeService(requestPair.requestValue)), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
             } catch (IOException e) {
                 e.printStackTrace();
