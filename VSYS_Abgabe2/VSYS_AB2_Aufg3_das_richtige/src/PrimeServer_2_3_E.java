@@ -4,16 +4,13 @@ import rm.requestResponse.Message;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PrimeServer_2_3_D {
+public class PrimeServer_2_3_E {
     private final static int PORT = 1234;
-    private final static Logger LOGGER = Logger.getLogger(PrimeServer_2_3_D.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(PrimeServer_2_3_E.class.getName());
 
     private Component communication;
     private int port = PORT;
@@ -23,7 +20,7 @@ public class PrimeServer_2_3_D {
 
     private static long startTime = 0;
 
-    PrimeServer_2_3_D(int port) {
+    PrimeServer_2_3_E(int port) {
         communication = new Component();
         if (port > 0) this.port = port;
     }
@@ -101,7 +98,7 @@ public class PrimeServer_2_3_D {
                     LOGGER.warning("Wrong parameter passed ... '" + args[i] + "'");
             }
         }
-        new PrimeServer_2_3_D(port).listen();
+        new PrimeServer_2_3_E(port).listen();
     }
 
     private String printQueue() {

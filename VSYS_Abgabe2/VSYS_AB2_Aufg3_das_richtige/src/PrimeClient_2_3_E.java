@@ -5,12 +5,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PrimeClient_2_3_D {
+public class PrimeClient_2_3_E {
     private static final String HOSTNAME = "localhost";
     private static final int PORT = 1234;
     private static final long INITIAL_VALUE = (long) 1e17;
     private static final long COUNT = 5;
-    private static final String CLIENT_NAME = PrimeClient_2_3_D.class.getName();
+    private static final String CLIENT_NAME = PrimeClient_2_3_E.class.getName();
 
     private static long startTime = 0;
 
@@ -20,7 +20,7 @@ public class PrimeClient_2_3_D {
     int answerPort;
     long initialValue, count;
 
-    public PrimeClient_2_3_D(String hostname, int requestPort, int answerPort, long initialValue, long count) {
+    public PrimeClient_2_3_E(String hostname, int requestPort, int answerPort, long initialValue, long count) {
         this.hostname = hostname;
         this.requestPort = requestPort;
         this.answerPort = answerPort;
@@ -79,7 +79,7 @@ public class PrimeClient_2_3_D {
             input = reader.readLine();
             if (!input.equals("")) count = Integer.parseInt(input);
 
-            new PrimeClient_2_3_D(hostname, requestPort, answerport, initialValue, count).run();
+            new PrimeClient_2_3_E(hostname, requestPort, answerport, initialValue, count).run();
 
             System.out.println("Exit [n]> ");
             input = reader.readLine();

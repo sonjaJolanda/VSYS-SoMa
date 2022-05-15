@@ -7,10 +7,19 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../../VSYS-SoMa/VSYS_Abgabe2/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse_v12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse_v12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
