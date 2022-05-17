@@ -4,7 +4,9 @@ import rm.requestResponse.Message;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.logging.Logger;
 
@@ -32,7 +34,6 @@ public class PrimeServer_2_3_E {
     }
 
     void listen() {
-        // ToDo THIS IS NEW
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Server executor type: Choose between 'SINGLE', 'CONSTANT' and 'DYNAMIC' > ");
         String inputExecType = null;
@@ -41,9 +42,10 @@ public class PrimeServer_2_3_E {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //----------------------------------------------------------------------------------------------------
         if (inputExecType.equals("CONSTANT")) {
-            executorService = Executors.newFixedThreadPool(5);
-            System.out.println("> Threadcount (fixed): " + 5);
+            executorService = Executors.newFixedThreadPool(2);
+            System.out.println("> Threadcount (fixed): " + 2);
         } else if (inputExecType.equals("SINGLE")) {
             executorService = Executors.newSingleThreadExecutor();
             System.out.println("> Threadcount (fixed): " + 1);
@@ -51,6 +53,7 @@ public class PrimeServer_2_3_E {
             executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
         else
             executorService = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
+        //----------------------------------------------------------------------------------------------------
 
         Thread requestReceiver = new Thread(() -> {
             while (true) {
@@ -60,39 +63,41 @@ public class PrimeServer_2_3_E {
                     Integer sendPort = message.getPort();
                     final RequestPair pair = new RequestPair(sendPort, newIncomingRequest);
                     requestPairs.add(pair);
-                    System.out.println(">> received " + newIncomingRequest + " (p: " + sendPort + ")" + printQueue());
+                    System.out.println(">> received " + newIncomingRequest + " (p: " + sendPort + ")");
                 } catch (ClassNotFoundException | IOException e) {
                     e.printStackTrace();
                 }
             }
         });
-        requestReceiver.start();
 
         Thread threadCounter = new Thread(() -> {
-            if (this.executorService instanceof ThreadPoolExecutor executor) { // ToDo THIS IS NEW
-                int threadCountBefore = 0;
-                while (true) {
-                    boolean isExecService = this.executorService != null;
-                    boolean isDifferent = isExecService ? executor.getActiveCount() != threadCountBefore : threadCountBefore != 0;
-                    if (!isExecService && isDifferent) {
-                        threadCountBefore = 0;
-                        System.out.println("> Threadcount: " + 0 + printQueue());
-                    } else if (isExecService && isDifferent) {
-                        threadCountBefore = executor.getActiveCount();
-                        System.out.println("> Threadcount: " + executor.getActiveCount() + printQueue());
-                    }
+            if (!(this.executorService instanceof ThreadPoolExecutor executor))
+                return;
+
+            int threadCountBefore = 0;
+            while (true) {
+                int threadCountNow = executor.getActiveCount();
+                boolean isExecService = this.executorService != null;
+                boolean isDifferent = isExecService ? threadCountNow != threadCountBefore : threadCountBefore != 0;
+                if (!isExecService && isDifferent) {
+                    threadCountBefore = 0;
+                    System.out.println("> threads: " + 0);
+                } else if (isExecService && isDifferent) {
+                    threadCountBefore = threadCountNow;
+                    System.out.println("> ACTIVE threads: " + threadCountNow);
                 }
             }
         });
-
-        executorService.submit(threadCounter);
+        threadCounter.start();
+        requestReceiver.start();
 
         while (true) {
             try {
                 if (requestPairs.isEmpty())
                     Thread.sleep(1000);
-                else
+                else {
                     executorService.submit(new Calculate(requestPairs.pollFirst()));
+                }
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -140,10 +145,11 @@ public class PrimeServer_2_3_E {
         @Override
         public void run() {
             try {
-                // System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                //System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
                 communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
-                System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")");
             } catch (IOException e) {
+                System.out.println(requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
                 e.printStackTrace();
             }
         }

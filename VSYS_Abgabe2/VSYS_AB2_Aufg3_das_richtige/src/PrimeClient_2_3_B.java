@@ -33,6 +33,7 @@ public class PrimeClient_2_3_B {
         System.out.println("for loop starting (initial value: " + initialValue + "\n");
         for (long i = initialValue; i < initialValue + count; i++) processNumber(i);
         System.out.println("run through (initial value: " + initialValue);
+        //communication.cleanup();
     }
 
     public void processNumber(long value) throws IOException, ClassNotFoundException {

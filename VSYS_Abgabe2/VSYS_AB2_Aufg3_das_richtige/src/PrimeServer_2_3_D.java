@@ -48,18 +48,20 @@ public class PrimeServer_2_3_D {
         });
         requestReceiver.start();
 
-        // ToDo THIS IS NEW
+        // ToDo THIS IS NEW (Oder +1 wegen dem requestReceiver)
         Thread threadCounter = new Thread(() -> {
             int threadCountBefore = 0;
             while (true) {
-                boolean isExecService = this.executorService != null;
-                boolean isDifferent = isExecService ? this.executorService.getActiveCount() != threadCountBefore : threadCountBefore != 0;
-                if (!isExecService && isDifferent) {
-                    threadCountBefore = 0;
-                    System.out.println("> Threadcount: " + 0 + printQueue());
-                } else if (isExecService && isDifferent) {
-                    threadCountBefore = this.executorService.getActiveCount();
-                    System.out.println("> Threadcount: " + this.executorService.getActiveCount() + printQueue());
+                synchronized (this.requestPairs) {
+                    boolean isExecService = this.executorService != null;
+                    boolean isDifferent = isExecService ? this.executorService.getActiveCount() != threadCountBefore : threadCountBefore != 0;
+                    if (!isExecService && isDifferent) {
+                        threadCountBefore = 0;
+                        System.out.println("> Threadcount: " + 0 + printQueue());
+                    } else if (isExecService && isDifferent) {
+                        threadCountBefore = this.executorService.getActiveCount();
+                        System.out.println("> Threadcount: " + this.executorService.getActiveCount() + printQueue());
+                    }
                 }
             }
         });
@@ -71,8 +73,9 @@ public class PrimeServer_2_3_D {
             try {
                 if (requestPairs.isEmpty())
                     Thread.sleep(1000);
-                else
+                else {
                     executorService.submit(new Calculate(requestPairs.pollFirst()));
+                }
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -120,7 +123,7 @@ public class PrimeServer_2_3_D {
         @Override
         public void run() {
             try {
-                // System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                //System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
                 communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
             } catch (IOException e) {
