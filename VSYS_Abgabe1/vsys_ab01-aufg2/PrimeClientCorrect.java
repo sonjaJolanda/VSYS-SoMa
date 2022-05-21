@@ -10,7 +10,7 @@ public class PrimeClientCorrect {
     private static final String INITIAL_REQUEST_MODE = "SYNCHRONIZED";
     private static final long INITIAL_VALUE = (long) 1e17;
     private static final long COUNT = 20;
-    private static final String CLIENT_NAME = PrimeClient.class.getName();
+    private static final String CLIENT_NAME = PrimeClientCorrect.class.getName();
 
     private Component communication;
     String hostname, requestMode;

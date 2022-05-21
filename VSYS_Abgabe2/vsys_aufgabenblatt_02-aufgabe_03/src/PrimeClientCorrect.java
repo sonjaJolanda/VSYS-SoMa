@@ -10,21 +10,23 @@ public class PrimeClientCorrect {
     private static final String INITIAL_REQUEST_MODE = "SYNCHRONIZED";
     private static final long INITIAL_VALUE = (long) 1e17;
     private static final long COUNT = 20;
-    private static final String CLIENT_NAME = PrimeClient.class.getName();
+    private static final String CLIENT_NAME = PrimeClientCorrect.class.getName();
 
     private Component communication;
     String hostname, requestMode;
-    int port;
+    int sendPort;
+    int answerPort;
     long initialValue, count;
     //new
     Boolean isPrime = null;
 
-    public PrimeClientCorrect(String hostname, int port, String requestMode, long initialValue, long count) {
+    public PrimeClientCorrect(String hostname, int sendPort, int answerPort, String requestMode, long initialValue, long count) {
         this.hostname = hostname;
-        this.port = port;
+        this.sendPort = sendPort;
+        this.answerPort = answerPort;
         this.requestMode = requestMode;
-        this.initialValue = initialValue;
         this.count = count;
+        this.initialValue = initialValue;
     }
 
     public void run() throws ClassNotFoundException, IOException {
@@ -39,8 +41,8 @@ public class PrimeClientCorrect {
     }
 
     public void processNumber(long value) throws IOException, ClassNotFoundException {
-        communication.send(new Message(hostname, port, new Long(value)), false);
-        Boolean isPrime = (Boolean) communication.receive(port, true, true).getContent();
+        communication.send(new Message(hostname, answerPort, value), sendPort, false);
+        Boolean isPrime = (Boolean) communication.receive(answerPort, true, true).getContent();
         System.out.println(value + ": " + (isPrime.booleanValue() ? "prime" : "not prime"));
     }
 
@@ -68,13 +70,13 @@ public class PrimeClientCorrect {
 
     //Aufgabe c edited
     public void processNumberPolling(long value) throws IOException, ClassNotFoundException {
-        communication.send(new Message(hostname, port, new Long(value)), false);
+        communication.send(new Message(hostname, answerPort, new Long(value)), sendPort, false);
         System.out.println(value + ": ");
         System.out.println((processNumberPollingReceive(value)) ? "prime" : "not prime");
     }
 
     public Boolean processNumberPollingReceive(long value) throws IOException, ClassNotFoundException {
-        Message receiver = communication.receive(port, false, true);
+        Message receiver = communication.receive(sendPort, false, true);
         if (receiver != null)
             return (Boolean) receiver.getContent();
 
@@ -130,8 +132,8 @@ public class PrimeClientCorrect {
 
     public void messageHandler(long value) {
         try {
-            communication.send(new Message(hostname, port, new Long(value)), false);
-            isPrime = (Boolean) communication.receive(port, true, true).getContent();
+            communication.send(new Message(hostname, answerPort, new Long(value)), sendPort, false);
+            isPrime = (Boolean) communication.receive(sendPort, true, true).getContent();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -185,7 +187,7 @@ public class PrimeClientCorrect {
             input = reader.readLine();
             if (!input.equals("")) count = Integer.parseInt(input);
 
-            new PrimeClientCorrect(hostname, port, requestMode, initialValue, count).run();
+            //new PrimeClientCorrect(hostname, port, requestMode, initialValue, count).run();
 
             System.out.println("Exit [n]> ");
             input = reader.readLine();
