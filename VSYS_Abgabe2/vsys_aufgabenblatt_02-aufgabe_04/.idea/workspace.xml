@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ac09258-bd7d-484f-89f7-e5c9ec35f2b2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../VSYS_Abgabe1/vsys_ab01-aufg2/PrimeClientCorrect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VSYS_Abgabe1/vsys_ab01-aufg2/PrimeClientCorrect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/VSYS_AB2_Aufg3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/MockExecutorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/PrimeClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/PrimeClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/PrimeServer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/PrimeServer$ExecutorType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/PrimeServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/RequestMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Lsg/ThreadCounter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/MyThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeClientCorrect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeClient_2_3_B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeClient_2_3_C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeClient_2_3_D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeClient_2_3_E.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_B_so.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_C$Calculate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_D$Calculate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_E$Calculate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/PrimeServer_2_3_E.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/out/production/VSYS_AB2_Aufg3/RequestPair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/MockExecutorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/PrimeClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/PrimeServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/RequestMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Lsg/ThreadCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/MyThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeClientCorrect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeClient_2_3_B.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeClient_2_3_C.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeClient_2_3_D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeClient_2_3_E.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeServer_2_3_B.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeServer_2_3_B_so.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeServer_2_3_C.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeServer_2_3_D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/PrimeServer_2_3_E.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VSYS_AB2_Aufg3_das_richtige/src/RequestPair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/allclasses-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/allclasses-noframe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/constant-values.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/deprecated-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index-files/index-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/package-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/background.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/tab.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/titlebar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/resources/titlebar_end.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/Component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/Message.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/class-use/Component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/class-use/Message.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/rm/requestResponse/package-use.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/serialized-form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/src/A.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/src/PrimeClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/src/PrimeServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse.javadoc/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse_v12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/src/PrimeClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/src/PrimeClientCorrect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/src/PrimeClientCorrect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_03/src/PrimeServer.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="28vnbJVV3tfwkNHFP0eej4XATZ8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vsys_aufgabenblatt_02-aufgabe_02" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_aufgabenblatt_02-aufgabe_03\rm.requestResponse.javadoc\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_aufgabenblatt_02-aufgabe_03\rm.requestResponse.javadoc\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ac09258-bd7d-484f-89f7-e5c9ec35f2b2" name="Changes" comment="" />
+      <created>1652105997530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652105997530</updated>
+    </task>
+    <servers />
+  </component>
+</project>
