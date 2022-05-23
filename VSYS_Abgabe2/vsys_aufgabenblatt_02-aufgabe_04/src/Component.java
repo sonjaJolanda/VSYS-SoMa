@@ -6,41 +6,29 @@ import java.net.Socket;
 
 public class Component {
 
+    // ToDo: complete, blocking
 
     public Component() {
 
     }
 
-    public Message send(Message msg, int port, boolean complete) {
-        try {
-            ServerSocket serverSocket = new ServerSocket(port);
-            Socket socket = serverSocket.accept();
-            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.writeObject(msg);
-            return msg;
+    public Message send(Message msg, int port, boolean complete) throws IOException {
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        ServerSocket serverSocket = new ServerSocket(port);
+        Socket socket = serverSocket.accept();
+        ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+        outputStream.writeObject(msg);
+        return msg;
     }
 
-    public Message receive(int port, boolean blocking, boolean complete) {
-        try {
-            ServerSocket serverSocket = new ServerSocket(port);
-            Socket socket = serverSocket.accept();
-            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-            Message msg = (Message) inputStream.readObject();
+    public Message receive(int port, boolean blocking, boolean complete) throws IOException, ClassNotFoundException {
 
-            return msg;
+        ServerSocket serverSocket = new ServerSocket(port);
+        Socket socket = serverSocket.accept();
+        ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+        Message msg = (Message) inputStream.readObject();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return msg;
     }
 
     public void cleanup() {

@@ -13,4 +13,8 @@ public class Message {
     public Object getContent() {
         return this.content;
     }
+
+    public int getPort() {
+        return sendPort;
+    }
 }

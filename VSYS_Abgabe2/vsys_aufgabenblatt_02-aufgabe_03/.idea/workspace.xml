@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="894da8f1-554e-4e09-a6a5-1366282b6d7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../VSYS_Abgabe1/vsys_ab01-aufg2/PrimeClientCorrect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VSYS_Abgabe1/vsys_ab01-aufg2/PrimeClientCorrect.java" afterDir="false" />
-    </list>
+    <list default="true" id="894da8f1-554e-4e09-a6a5-1366282b6d7d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../VSYS-SS22-Patrick/src/Aufgabenblatt01/Aufgabe02" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
