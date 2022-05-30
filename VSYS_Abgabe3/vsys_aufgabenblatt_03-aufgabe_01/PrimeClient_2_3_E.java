@@ -41,10 +41,14 @@ public class PrimeClient_2_3_E {
 
     public void processNumber(long value) throws IOException, ClassNotFoundException, InterruptedException {
         Boolean isPrime = false;
-        communication.send(new Message(hostname, sendPort, value), port, false);
+        RequestPair requestPair = new RequestPair(sendPort, value);
+        requestPair.setcStart();
+        communication.send(new Message(hostname, sendPort, requestPair), port, false);
 
         if (this.requestType.equals("SYNC")) {
-            isPrime = (Boolean) communication.receive(sendPort, true, true).getContent();
+            requestPair = (RequestPair) communication.receive(sendPort, true, true).getContent();
+            requestPair.setcEnd();
+            isPrime = requestPair.answer;
         } else if (this.requestType.equals("POLLING")) {
             Message m = communication.receive(sendPort, false, true);
             while (m == null) {
@@ -53,7 +57,9 @@ public class PrimeClient_2_3_E {
 
                 m = communication.receive(sendPort, false, true);
             }
-            isPrime = (Boolean) m.getContent();
+            requestPair = (RequestPair) communication.receive(sendPort, true, true).getContent();
+            requestPair.setcEnd();
+            isPrime = requestPair.answer;
         } else if (this.requestType.equals("ASYNC")) {
             MyThread t = new MyThread(communication, port, sendPort);
             t.start();
@@ -62,8 +68,14 @@ public class PrimeClient_2_3_E {
                 Thread.sleep(100);
             }
             isPrime = t.getPrime();
+            requestPair = t.getRequestPair();
         }
-        System.out.println("port " + sendPort + " " + value + ": " + (isPrime.booleanValue() ? "prime" : "not prime"));
+
+        System.out.println("port " + sendPort + " " + value + ": " + (isPrime.booleanValue() ? "prime" : "not prime" +
+                " | p: " + requestPair.getProcessingTime() + " ms" +
+                " | w: " + requestPair.getWaitingTime() + " ms" +
+                " | c: " + requestPair.getCommunicationTime() + " ms"));
+
 //		communication.cleanup();
     }
 

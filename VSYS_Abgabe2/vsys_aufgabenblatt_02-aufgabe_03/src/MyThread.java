@@ -1,6 +1,7 @@
 import rm.requestResponse.Component;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MyThread extends Thread {
     private Component communication;
@@ -19,15 +20,15 @@ public class MyThread extends Thread {
     }
 
     public void run() {
-        synchronized (MyThread.class) {
-            try {
-                //System.out.println("listening to " + sendPort);
-                this.isPrime = (Boolean) communication.receive(sendPort, true, true).getContent();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+        AtomicReference<Boolean> result = new AtomicReference<>(null);
+        try {
+            //System.out.println("listening to " + sendPort);
+            result.set((Boolean) communication.receive(sendPort, true, true).getContent());
+            isPrime = result.get();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

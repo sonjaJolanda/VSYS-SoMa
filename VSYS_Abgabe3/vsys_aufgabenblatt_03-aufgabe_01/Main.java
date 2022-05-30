@@ -12,8 +12,11 @@ public class Main {
             long initialValue = (long) 1e16 * (i + 1);
             Thread thread = new Thread(() -> {
                 try {
-                    new PrimeClientCorrect(HOSTNAME, PORT, sendPort, REQUEST_TYPE, initialValue, COUNT).run();
+                    //new PrimeClientCorrect(HOSTNAME, PORT, sendPort, REQUEST_TYPE, initialValue, COUNT).run();
+                    new PrimeClient_2_3_E(HOSTNAME, PORT, sendPort, REQUEST_TYPE, initialValue, COUNT).run();
                 } catch (ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             });

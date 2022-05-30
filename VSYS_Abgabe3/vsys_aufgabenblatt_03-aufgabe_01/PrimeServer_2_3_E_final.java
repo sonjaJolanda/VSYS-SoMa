@@ -24,11 +24,13 @@ public class PrimeServer_2_3_E_final {
         if (port > 0) this.port = port;
     }
 
-    private boolean primeService(long number) {
-        for (long i = 2; i < Math.sqrt(number) + 1; i++) {
-            if (number % i == 0)
+    private boolean primeService(RequestPair requestPair) {
+        requestPair.setpStart();
+        for (long i = 2; i < Math.sqrt(requestPair.requestValue) + 1; i++) {
+            if (requestPair.requestValue % i == 0)
                 return false;
         }
+        requestPair.setpEnd();
         return true;
     }
 
@@ -101,19 +103,9 @@ public class PrimeServer_2_3_E_final {
         LinkedList<RequestPair> requestPairs = new LinkedList<>();
         Thread requestReceiver = new Thread(() -> {
             while (true) {
-                try {
-                    Message message = communication.receive(port, true, false);
-                    Long newIncomingRequest = (Long) message.getContent();
-                    Integer sendPort = message.getPort();
-                    final RequestPair pair = new RequestPair(sendPort, newIncomingRequest);
-                    requestPairs.add(pair);
-                    System.out.println(">> received " + newIncomingRequest + " (p: " + sendPort + ")");
-                } catch (ClassNotFoundException | IOException e) {
-                    e.printStackTrace();
-                }
+                requestPairs.add(receive());
             }
         });
-
         countThreads();
         requestReceiver.start();
 
@@ -131,16 +123,20 @@ public class PrimeServer_2_3_E_final {
 
     private void handleRequestsSingleThreaded() {
         while (true) {
-            try {
-                Message message = communication.receive(port, true, false);
-                Long newIncomingRequest = (Long) message.getContent();
-                Integer sendPort = message.getPort();
-                final RequestPair pair = new RequestPair(sendPort, newIncomingRequest);
-                System.out.println(">> received " + newIncomingRequest + " (p: " + sendPort + ")");
-                executorService.submit(new Calculate(pair));
-            } catch (ClassNotFoundException | IOException e) {
-                e.printStackTrace();
-            }
+            executorService.submit(new Calculate(receive()));
+        }
+    }
+
+    public RequestPair receive() {
+        try {
+            Message message = communication.receive(port, true, false);
+            final RequestPair pair = new RequestPair(message.getPort(), (Long) message.getContent());
+            pair.setwStart();
+            System.out.println(">> received " + pair.requestValue + " (port: " + pair.sendPort + ")");
+            return pair;
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -175,7 +171,9 @@ public class PrimeServer_2_3_E_final {
         public void run() {
             try {
                 //System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
-                communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
+                requestPair.setwEnd();
+                primeService(requestPair);
+                communication.send(new Message("localhost", requestPair.sendPort, requestPair), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")");
             } catch (IOException e) {
                 System.out.println(requestPair.requestValue + " (p:" + requestPair.sendPort + ")");

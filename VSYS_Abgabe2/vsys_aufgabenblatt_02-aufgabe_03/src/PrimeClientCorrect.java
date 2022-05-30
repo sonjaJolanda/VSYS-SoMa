@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.atomic.AtomicReference;
 
 import rm.requestResponse.*;
 
@@ -133,7 +134,11 @@ public class PrimeClientCorrect {
     public void messageHandler(long value) {
         try {
             communication.send(new Message(hostname, answerPort, new Long(value)), sendPort, false);
-            isPrime = (Boolean) communication.receive(sendPort, true, true).getContent();
+
+            AtomicReference<Boolean> result = new AtomicReference<>(null);
+            result.set((Boolean) communication.receive(sendPort, true, true).getContent());
+            isPrime = result.get();
+
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

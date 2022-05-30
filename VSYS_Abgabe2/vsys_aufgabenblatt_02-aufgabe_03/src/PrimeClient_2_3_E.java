@@ -121,7 +121,7 @@ public class PrimeClient_2_3_E {
             if (!input.equals("")) count = Integer.parseInt(input);
 
 //			if(isSynchronized) System.out.println("Anfrage wird ohne Polling durchgeführt.");
-            System.out.println("/////" + requestType + "/////");
+            System.out.println("Anfragemodus: " + requestType + "");
             new PrimeClient_2_3_E(hostname, port, sendPort, requestType, initialValue, count).run();
 
             System.out.println("Exit [n]> ");

@@ -3,7 +3,7 @@ import java.io.IOException;
 public class Main {
     private static final String HOSTNAME = "localhost";
     private static final int PORT = 1234;
-    private static final String REQUEST_TYPE = "SYNCHRONIZED";
+    private static final String REQUEST_TYPE = "ASYNC";
     private static final long COUNT = 20;
 
     public static void main(String[] args) {
