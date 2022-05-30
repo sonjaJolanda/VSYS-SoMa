@@ -29,8 +29,11 @@ public class PrimeServer_2_3_E_final {
             if (number % i == 0)
                 return false;
         }
+
         return true;
     }
+
+
 
     void listen() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
