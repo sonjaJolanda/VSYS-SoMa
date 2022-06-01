@@ -146,10 +146,10 @@ public class PrimeClientCorrect {
 
     public void messageHandler(long value) {
         try {
-            this.requestPair = new RequestPair(sendPort, value);
+            this.requestPair = new RequestPair(answerPort, value);
             this.requestPair.setcStart();
             communication.send(new Message(hostname, answerPort, this.requestPair), sendPort, false);
-            this.requestPair = (RequestPair) communication.receive(sendPort, true, true).getContent();
+            this.requestPair = (RequestPair) communication.receive(answerPort, true, true).getContent();
             this.requestPair.setcEnd();
             isPrime = this.requestPair.answer;
         } catch (IOException | ClassNotFoundException e) {
