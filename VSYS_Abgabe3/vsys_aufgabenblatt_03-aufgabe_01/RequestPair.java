@@ -1,4 +1,7 @@
 public class RequestPair {
+
+    private static final long serialVersionUID = 10;
+
     public Integer sendPort;
     public Long requestValue;
     Boolean answer;
