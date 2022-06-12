@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="rm.requestResponse">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/rm.requestResponse.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
