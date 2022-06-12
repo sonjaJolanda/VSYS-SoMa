@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 import java.util.logging.Logger;
 
 public class PrimeServer_2_3_E_final {
-    private final static int PORT = 1234;
+    private static int PORT = 1234;
     private final static Logger LOGGER = Logger.getLogger(PrimeServer_2_3_E_final.class.getName());
 
     private Component communication;
@@ -37,16 +37,27 @@ public class PrimeServer_2_3_E_final {
     }
 
     void listen() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("Server executor type: Choose between '(s)INGLE', '(c)ONSTANT' and '(d)YNAMIC' > ");
         String inputExecType = null;
+        int inputPort = PORT;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
         try {
+            System.out.print("Server port > ");
+            inputPort = Integer.valueOf(reader.readLine());
+            if (inputPort > 65535)
+                throw new IllegalArgumentException();
+
+            System.out.print("Server executor type: Choose between '(s)INGLE', '(c)ONSTANT' and '(d)YNAMIC' > ");
             inputExecType = reader.readLine();
-        } catch (IOException e) {
+        } catch (IOException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Wrong input.");
             listen();
         }
+
+        this.PORT = inputPort;
+        this.port = inputPort;
+        System.out.println("port: " + PORT);
 
         switch (inputExecType) {
             case "c": {
