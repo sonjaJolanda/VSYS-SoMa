@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="rm.requestResponse_v12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../VSYS_Abgabe2/vsys_aufgabenblatt_02-aufgabe_02/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse_v12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../VSYS_Abgabe2/rm-request-response-v12-jar/vsys_aufgabenblatt_02-aufgabe_03/rm.requestResponse_v12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/vsys_ab03/AB_03_EX_02/rm.serverAdmin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="rm.serverAdmin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AB_03_EX_02/rm.serverAdmin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
