@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
     private static final String HOSTNAME = "localhost";
     private static final int PORT = 5656;
-    private static final String REQUEST_TYPE = "THREADED"; //[1] SYNCHRONIZED [2] POLLING [3] THREADED
+    private static final String REQUEST_TYPE = "POLLING"; //[1] SYNCHRONIZED [2] POLLING [3] THREADED
     private static final long COUNT = 5;
 
     /**
