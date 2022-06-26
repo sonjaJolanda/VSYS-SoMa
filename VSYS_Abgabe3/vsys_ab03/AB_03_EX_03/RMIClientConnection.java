@@ -1,15 +1,15 @@
 package AB_03_EX_03;
 
 class RMIClientConnection extends Thread implements BasicClientConnection, BasicConnection {
-	private final BasicListener listener;
+	private final BasicListener primeServerBasicListener;
 	private final Integer monitor;
 	private String incomingMessage;
 	private String outgoingMessage;
 	private boolean isThereAMessageToReceive;
 	private boolean isThereAMessageToSend;
 
-	public RMIClientConnection(BasicListener listener) {
-		this.listener = listener;
+	public RMIClientConnection(BasicListener primeServerBasicListener) {
+		this.primeServerBasicListener = primeServerBasicListener;
 		isThereAMessageToReceive = false;
 		isThereAMessageToSend = false;
 		monitor = 0;
@@ -17,9 +17,14 @@ class RMIClientConnection extends Thread implements BasicClientConnection, Basic
 
 	@Override
 	public void run() {
-		listener.connectionAccepted(this);
+		primeServerBasicListener.connectionAccepted(this);
 	}
 
+	/**
+	 * is called by the RMIClient.
+	 * @param text The message to be sent.
+	 * @return
+	 */
 	@Override
 	public String message(String text) {
 		if (isThereAMessageToReceive) {
@@ -60,6 +65,7 @@ class RMIClientConnection extends Thread implements BasicClientConnection, Basic
 	}
 
 	@Override
+	// aufgerufen vom PrimServer
 	public String receiveMessage() {
 		if (!isThereAMessageToReceive) {
 			synchronized (monitor) {
@@ -71,12 +77,13 @@ class RMIClientConnection extends Thread implements BasicClientConnection, Basic
 				}
 			}
 		}
-		String incomingMessageCopy = incomingMessage; //kann man die nicht einfach direkt zurückgeben
+		String incomingMessageCopy = incomingMessage; // ToDo kann man die nicht einfach direkt zurückgeben
 		isThereAMessageToReceive = false;
 		return incomingMessageCopy;
 	}
 
 	@Override
+	// aufgerufen vom PrimServer
 	public void sendMessage(String text) {
 		outgoingMessage = text;
 		isThereAMessageToSend = true;

@@ -9,15 +9,14 @@ import java.util.logging.Logger;
 class PrimeServer implements BasicListener {
 	private static final Logger LOGGER = Logger.getLogger(PrimeServer.class.getName());
 	private final ExecutorService executorService;
-	private final BasicServer server;
+	private final BasicServer basicServer;
 
-	PrimeServer(BasicServer server, ExecutorService executorService) {
+	PrimeServer(BasicServer basicServer, ExecutorService executorService) {
 		this.executorService = executorService;
-		this.server = server;
-		this.server.setListener(this);
+		this.basicServer = basicServer;
+		this.basicServer.setPrimeServerBasicListener(this);
 
 		new ThreadCounter(executorService).start();
-
 		setLogLevel(Level.FINER);
 	}
 
@@ -38,13 +37,13 @@ class PrimeServer implements BasicListener {
 	}
 
 	@Override
-	public void connectionAccepted(BasicConnection connection) {
+	public void connectionAccepted(BasicConnection rmiClientConnection) {
 		LOGGER.finer("Receiving ...");
-		long request = Long.parseLong(connection.receiveMessage());
+		long request = Long.parseLong(rmiClientConnection.receiveMessage());
 		LOGGER.fine("%d received.".formatted(request));
 
 		executorService.submit(() -> {
-			connection.sendMessage(String.valueOf(primeService(request)));
+			rmiClientConnection.sendMessage(String.valueOf(primeService(request)));
 			LOGGER.fine("message sent.");
 		});
 	}
@@ -79,7 +78,7 @@ class PrimeServer implements BasicListener {
 		};
 
 		BasicServer basicServer = new RMIServer();
-		basicServer.setListener(new PrimeServer(basicServer, executorService));
+		basicServer.setPrimeServerBasicListener(new PrimeServer(basicServer, executorService));
 		basicServer.waitForConnection(port);
 	}
 

@@ -13,7 +13,7 @@ interface BasicServer {
 	 * Set a {@link BasicListener} to be registered in the newly generated
 	 * {@link java.rmi.registry.Registry}.
 	 *
-	 * @param listener The listener to be registered.
+	 * @param primeServerBasicListener The listener to be registered.
 	 */
-	void setListener(BasicListener listener);
+	void setPrimeServerBasicListener(BasicListener primeServerBasicListener);
 }

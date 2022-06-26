@@ -17,9 +17,14 @@ class RMIClient implements BasicClient {
 	@Override
 	public void connect(int port, String hostname) {
 		try {
+
+			/* get the rmiClientListener from the registry */
 			Registry registry = LocateRegistry.getRegistry(hostname, port);
-			BasicClientListener listener = (BasicClientListener) registry.lookup("clientListener");
-			baseClientConnection = listener.connect();
+			BasicClientListener basicClientListener = (BasicClientListener) registry.lookup("clientListener");
+			/* in RMIClientListener.class */
+			baseClientConnection = basicClientListener.connect();
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

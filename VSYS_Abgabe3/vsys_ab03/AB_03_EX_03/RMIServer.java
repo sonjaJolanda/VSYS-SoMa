@@ -7,19 +7,21 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 class RMIServer implements BasicServer {
-	private BasicListener listener;
+	private BasicListener primeServerBasicListener;
 
 	@Override
 	@SuppressWarnings({"InfiniteLoopStatement", "BusyWait"})
 	public void waitForConnection(int port) {
 		try {
+
+			/* register the rmiClientListener */
+			RMIClientListener rmiClientListener = new RMIClientListener(primeServerBasicListener);
+			Remote clientListenerStub = UnicastRemoteObject.exportObject(rmiClientListener, 0);
 			Registry registry = LocateRegistry.createRegistry(port);
-
-			RMIClientListener clientListener = new RMIClientListener(listener);
-			Remote clientListenerStub = UnicastRemoteObject.exportObject(clientListener, 0);
-
 			registry.rebind("clientListener", clientListenerStub);
-			while (true) {
+
+
+			while (true) {  // ToDo "The thread does not lose ownership of any monitors."
 				Thread.sleep(1000);
 			}
 		} catch (RemoteException | InterruptedException e) {
@@ -28,7 +30,7 @@ class RMIServer implements BasicServer {
 	}
 
 	@Override
-	public void setListener(BasicListener listener) {
-		this.listener = listener;
+	public void setPrimeServerBasicListener(BasicListener primeServerBasicListener) {
+		this.primeServerBasicListener = primeServerBasicListener;
 	}
 }
