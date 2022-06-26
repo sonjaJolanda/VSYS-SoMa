@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc587ac8-d9aa-4116-bb2e-f9db5fd9ea7e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_01/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_01/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/LoadBalancer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/LoadBalancer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/PrimeServer_2_3_E_final$Calculate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/PrimeServer_2_3_E_final$Calculate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/RequestPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_02/RequestPair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_03/PrimeServer_2_3_E$Calculate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/out/production/VSYS_Abgabe3_Test/AB_03_EX_03/PrimeServer_2_3_E.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_02/LoadBalancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_02/LoadBalancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_02/PrimeServer_2_3_E_final.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_02/PrimeServer_2_3_E_final.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_02/RequestPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_02/RequestPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_03/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_03/MyThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_03/PrimeClientCorrect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_03/PrimeServer_2_3_E_final.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../VSYS_Abgabe3/vsys_ab03/AB_03_EX_03/RequestPair.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2At6zY7uFUkuxGQy9CcRMInxV30" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc587ac8-d9aa-4116-bb2e-f9db5fd9ea7e" name="Changes" comment="" />
+      <created>1655816797419</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655816797419</updated>
+    </task>
+    <servers />
+  </component>
+</project>

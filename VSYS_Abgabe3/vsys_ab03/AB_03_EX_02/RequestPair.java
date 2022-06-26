@@ -116,7 +116,7 @@ public class RequestPair implements Serializable {
                 sum += p;
             }
             this.pAverage = (ps.isEmpty()) ? 0 : (sum / ps.size());
-            System.out.println(">> added p:" + this.p + " (" + pAverage + ")");
+            //System.out.println(">> added p:" + this.p + " (" + pAverage + ")");
         }
         //System.out.println("p:" + p + ", pStart:" + pStart);
     }
@@ -133,7 +133,7 @@ public class RequestPair implements Serializable {
                 sum += w;
             }
             this.wAverage = (ws.isEmpty()) ? 0 : (sum / ws.size());
-            System.out.println(">> added w:" + this.w + " (" + wAverage + ")");
+           // System.out.println(">> added w:" + this.w + " (" + wAverage + ")");
         }
         //System.out.println("w:" + w + ", wStart:" + wStart);
     }

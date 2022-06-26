@@ -195,10 +195,10 @@ public class PrimeServer_2_3_E_final {
                 //System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
                 requestPair.setwEnd();
                 requestPair.answer = primeService(requestPair);
-                communication.send(new Message("localhost", requestPair.sendPort, requestPair), requestPair.sendPort, true);
+                communication.send(new Message("localhost", PORT, requestPair), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")");
             } catch (IOException e) {
-                System.out.println(requestPair.requestValue + " (p:" + requestPair.sendPort + ")");
+                System.out.println("IOException: " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")");
                 e.printStackTrace();
             }
         }

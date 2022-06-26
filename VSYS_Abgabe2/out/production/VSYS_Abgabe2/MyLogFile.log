@@ -1,0 +1,109 @@
+Juni 12, 2022 3:11:35 PM AB_02_EX_02.WebServerABC main
+INFORMATION: Server started.
+Listening for connections on port : 8080 ...
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Setting up input and output streams
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Setting up input and output streams
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Getting input from client via socket and process given data
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Getting input from client via socket and process given data
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: search for file requested: /
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\website.html 
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: send header back 
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: send html back 
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: close all streams 
+
+Juni 12, 2022 3:11:42 PM AB_02_EX_02.WebServerABC run
+INFORMATION: connection closed
+
+Juni 12, 2022 3:11:43 PM AB_02_EX_02.WebServerABC run
+INFORMATION: search for file requested: /favicon.ico
+
+Juni 12, 2022 3:11:43 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\favicon.ico 
+
+Juni 12, 2022 3:11:43 PM AB_02_EX_02.WebServerABC fileNotFound
+WARNUNG: the file requested (/favicon.ico) wasn't found. Return html with info 'file not found'!
+
+Juni 12, 2022 3:11:43 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\404.html 
+
+Juni 12, 2022 3:11:43 PM AB_02_EX_02.WebServerABC run
+INFORMATION: connection closed
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Setting up input and output streams
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Setting up input and output streams
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Getting input from client via socket and process given data
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Getting input from client via socket and process given data
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC run
+INFORMATION: search for file requested: /404
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\404 
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC fileNotFound
+WARNUNG: the file requested (/404) wasn't found. Return html with info 'file not found'!
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\404.html 
+
+Juni 12, 2022 3:11:59 PM AB_02_EX_02.WebServerABC run
+INFORMATION: connection closed
+
+Juni 12, 2022 3:12:04 PM AB_02_EX_02.WebServerABC run
+INFORMATION: the end of the stream has been reached without reading any characters -> connection closed
+
+Juni 12, 2022 3:12:04 PM AB_02_EX_02.WebServerABC run
+INFORMATION: connection closed
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Setting up input and output streams
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Setting up input and output streams
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Getting input from client via socket and process given data
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC run
+INFORMATION: Getting input from client via socket and process given data
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC run
+INFORMATION: search for file requested: /ollo
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\ollo 
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC fileNotFound
+WARNUNG: the file requested (/ollo) wasn't found. Return html with info 'file not found'!
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC readFileData
+INFORMATION: read File Data C:\Users\sonja\Projects\VSYS-SoMa\VSYS_Abgabe2\vsys_ab02\.\404.html 
+
+Juni 12, 2022 3:12:06 PM AB_02_EX_02.WebServerABC run
+INFORMATION: connection closed
+

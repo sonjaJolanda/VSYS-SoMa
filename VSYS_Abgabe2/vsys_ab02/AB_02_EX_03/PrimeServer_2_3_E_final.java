@@ -174,7 +174,7 @@ public class PrimeServer_2_3_E_final {
         @Override
         public void run() {
             try {
-                //System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" + printQueue());
+                System.out.println(">>> in work " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")" );
                 communication.send(new Message("localhost", requestPair.sendPort, primeService(requestPair.requestValue)), requestPair.sendPort, true);
                 System.out.println(">>> sent " + requestPair.requestValue + " (p:" + requestPair.sendPort + ")");
             } catch (IOException e) {

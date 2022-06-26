@@ -8,6 +8,8 @@ import rm.serverAdmin.ServerConfig;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
@@ -38,35 +40,36 @@ class LoadBalancer {
 
     public void listen() throws IOException, ClassNotFoundException {
         while (true) {
-            //get requests from client
             Message msgFromClient = communication.receive(receivePort, true, true);
-            System.out.println("got new message");
+            System.out.println("got new message " + receivePort);
 
             //-------------------------------------------------------------------
 
             executorService.submit(() -> {
-                RequestPair requestPair = (RequestPair) msgFromClient.getContent();
-                int answerToClientPort = requestPair.sendPort;
 
                 ServerConfig serverConfig = serverAdmin.bind();
+
                 try {
                     Component serverCommunication = new Component();
+                    RequestPair requestPair = (RequestPair) msgFromClient.getContent();
+                    synchronized (requestPair) {
 
-                    // send request to server
-                    System.out.println("send request to server");
-                    requestPair.sendPort = serverConfig.getReceivePort();
-                    msgFromClient.setContent(requestPair);
-                    serverCommunication.send(msgFromClient, serverConfig.getReceivePort(), true);
+                        int answerToClientPort = requestPair.sendPort;
+                        requestPair.sendPort = serverConfig.getSendPort();
+                        msgFromClient.setContent(requestPair);
 
-                    // get answer from server and send answer to client
-                    System.out.println("get answer from server and send answer to client");
-                    Message msgFromServer = communication.receive(serverConfig.getSendPort(), true, true);
-                    serverCommunication.send(msgFromServer, answerToClientPort, true);
+                        System.out.println("send request " + requestPair.requestValue + " to server to port " + serverConfig.getReceivePort());
+                        serverCommunication.send(msgFromClient, serverConfig.getReceivePort(), true);
+                        System.out.println("get answer of request " + requestPair.requestValue + " from server on port " + requestPair.sendPort);
+                        Message msgFromServer = communication.receive(requestPair.sendPort, true, true);
 
-                    serverCommunication.cleanup();
+                        System.out.println("send answer " + requestPair.requestValue + " to client to port " + answerToClientPort);
+                        serverCommunication.send(msgFromServer, answerToClientPort, true);
+                        serverCommunication.cleanup();
+                    }
 
                 } catch (IOException | ClassNotFoundException e) {
-                    LOGGER.severe("error: %s".formatted(e));
+                    e.printStackTrace();
                 } finally {
                     serverAdmin.release(serverConfig);
                 }
