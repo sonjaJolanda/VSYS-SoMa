@@ -40,11 +40,11 @@ class PrimeClient {
 	}
 
 	public void processNumber(long value) {
-		rmiClient.sendMessage(String.valueOf(value));
+		rmiClient.sendPrimeRequest(value);
 
 		switch (requestMode) {
 			case SYNC -> {
-				boolean isPrime = Boolean.parseBoolean(rmiClient.receiveMessage(true));
+				boolean isPrime = rmiClient.receivePrimeRequestResult(true);
 				synchronized (PrimeClient.class) {
 					System.out.printf("%d:", value);
 					System.out.println(isPrimeMessage(isPrime));
@@ -53,7 +53,7 @@ class PrimeClient {
 			case POLLING -> {
 				System.out.printf("%d:", value);
 
-				String message = rmiClient.receiveMessage(false);
+				Boolean message = rmiClient.receivePrimeRequestResult(false);
 				while (message == null) {
 					System.out.print(".");
 					try {
@@ -61,15 +61,15 @@ class PrimeClient {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					message = rmiClient.receiveMessage(false);
+					message = rmiClient.receivePrimeRequestResult(false);
 				}
 
-				boolean isPrime = Boolean.parseBoolean(message);
+				boolean isPrime = message;
 				System.out.println(isPrimeMessage(isPrime));
 			}
 			case ASYNC -> {
 				AtomicReference<Boolean> result = new AtomicReference<>(null);
-				Thread thread = new Thread(() -> result.set(Boolean.parseBoolean(rmiClient.receiveMessage(true))));
+				Thread thread = new Thread(() -> result.set(rmiClient.receivePrimeRequestResult(true)));
 
 				System.out.printf("%d:", value);
 

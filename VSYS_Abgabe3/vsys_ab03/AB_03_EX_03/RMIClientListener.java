@@ -14,12 +14,9 @@ class RMIClientListener implements BasicClientListener {
 	@Override
 	public BasicClientConnection connect() {
 		try {
-
-			/*  */
 			RMIClientConnection rmiClientConnection = new RMIClientConnection(primeServerBasicListener);
 			rmiClientConnection.start();
 			clientConnectionStub = (BasicClientConnection) UnicastRemoteObject.exportObject(rmiClientConnection, 0);
-
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

@@ -13,13 +13,11 @@ class RMIServer implements BasicServer {
 	@SuppressWarnings({"InfiniteLoopStatement", "BusyWait"})
 	public void waitForConnection(int port) {
 		try {
-
 			/* register the rmiClientListener */
 			RMIClientListener rmiClientListener = new RMIClientListener(primeServerBasicListener);
 			Remote clientListenerStub = UnicastRemoteObject.exportObject(rmiClientListener, 0);
 			Registry registry = LocateRegistry.createRegistry(port);
 			registry.rebind("clientListener", clientListenerStub);
-
 
 			while (true) {  // ToDo "The thread does not lose ownership of any monitors."
 				Thread.sleep(1000);

@@ -1,11 +1,13 @@
 package AB_03_EX_03;
 
+import java.util.concurrent.ExecutionException;
+
 interface BasicClient {
-	void connect(int port, String hostname);
+    void connect(int port, String hostname);
 
-	String receiveMessage(boolean blocking);
+    Boolean receivePrimeRequestResult(boolean blocking);
 
-	void sendMessage(String message);
+	void sendPrimeRequest(long number) throws ExecutionException, InterruptedException;
 
-	void disconnect();
+    void disconnect();
 }

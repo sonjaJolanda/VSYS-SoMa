@@ -1,8 +1,8 @@
 package AB_03_EX_03;
 
 interface BasicConnection {
-	String receiveMessage();
+	/*String receiveMessage();
 
-	void sendMessage(String message);
+	void sendMessage(String message);*/
 }
 
