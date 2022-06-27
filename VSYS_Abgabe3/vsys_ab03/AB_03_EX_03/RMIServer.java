@@ -19,10 +19,7 @@ class RMIServer implements BasicServer {
 			Registry registry = LocateRegistry.createRegistry(port);
 			registry.rebind("clientListener", clientListenerStub);
 
-			while (true) {  // ToDo "The thread does not lose ownership of any monitors."
-				Thread.sleep(1000);
-			}
-		} catch (RemoteException | InterruptedException e) {
+		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
