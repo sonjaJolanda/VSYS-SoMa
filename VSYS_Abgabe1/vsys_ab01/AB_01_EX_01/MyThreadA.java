@@ -4,6 +4,7 @@ package AB_01_EX_01;
  * Lösung von der A
  */
 public class MyThreadA extends Thread {
+    private Long firstTime;
     private static final int threadMax = 10;
     private static int runCount = 0;
 
@@ -14,10 +15,14 @@ public class MyThreadA extends Thread {
     }
 
     public void run() {
-        System.out.println("---------------- Thread start " + Thread.currentThread().getName() + " Time: " + System.currentTimeMillis());
         while (runCount++ < 100) {
-            System.out.println("count " + runCount + " : " + Thread.currentThread().getName() + " Time: " + System.currentTimeMillis());
+            System.out.println("count " + runCount + " : " + Thread.currentThread().getName() + " Time: " + getTimeSinceFirst());
         }
-        System.out.println("---------------- Thread end " + Thread.currentThread().getName() + " Time: " + System.currentTimeMillis());
+    }
+
+    public Long getTimeSinceFirst() {
+        if (firstTime == null)
+            firstTime = System.currentTimeMillis();
+        return System.currentTimeMillis() - firstTime;
     }
 }

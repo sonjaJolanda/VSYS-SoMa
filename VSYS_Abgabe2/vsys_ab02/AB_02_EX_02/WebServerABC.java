@@ -15,10 +15,8 @@ public class WebServerABC implements Runnable {
     static final File WEB_ROOT = new File(".");
     static final String DEFAULT_FILE = "website.html";
     static final String FILE_NOT_FOUND = "404.html";
-    static final int PORT = 8080;
     private Socket socket;
 
-    //Logging
     private static Logger logger = Logger.getLogger("MyLog");
     private static FileHandler fileHandler;
 
@@ -39,13 +37,9 @@ public class WebServerABC implements Runnable {
             for (int i = 0; i < args.length; i++) {
                 if (args[i].matches("^-port$")) {
                     port = Integer.valueOf(args[i + 1]);
-                    if (port > 65535) {
-                        System.exit(50);
-                    }
+                    if (port > 65535) System.exit(50);
                 }
-                if (args[i].matches("^-log$")) {
-                    fileName = args[i + 1];
-                }
+                if (args[i].matches("^-log$")) fileName = args[i + 1];
             }
             if (fileName == null || port == null) {
                 System.err.println("Error: Please enter 2 parameters: -log <filename> and -port <port>!\n Your parameters: " + argsToString(args));
@@ -57,22 +51,15 @@ public class WebServerABC implements Runnable {
                 fileHandler = new FileHandler("./" + fileName + ".log");
                 logger.addHandler(fileHandler);
                 fileHandler.setFormatter(new SimpleFormatter());
-            } catch (IOException ioe) {
-                System.err.println("Error creating logger : " + ioe.getMessage());
-            }
-
-            System.out.println("logging-file name: " + fileName + " and port: " + port);
+            } catch (IOException ioe) { System.err.println("Error creating logger : " + ioe.getMessage()); }
 
             ServerSocket serverConnect = new ServerSocket(port);
-            logger.info("Server started.\nListening for connections on port : " + port + " ...\n");
             while (true) {
                 WebServerABC myServer = new WebServerABC(serverConnect.accept());
                 Thread threadClientConnection = new Thread(myServer);
                 threadClientConnection.start();
             }
-        } catch (IOException e) {
-            System.err.println("Server Connection error : " + e.getMessage());
-        }
+        } catch (IOException e) {  System.err.println("Server Connection error : " + e.getMessage());  }
     }
 
     public void run() {
@@ -86,7 +73,6 @@ public class WebServerABC implements Runnable {
         String fileRequested = null;
 
         try {
-
             logger.info("Setting up input and output streams\n");
             inFromClientViaSocket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             outForClientViaSocket = new PrintWriter(socket.getOutputStream());
@@ -125,33 +111,19 @@ public class WebServerABC implements Runnable {
                 outForClientViaSocket.close();
                 requestedBinaryOutForClient.close();
             }
-        } catch (FileNotFoundException fnfe) {
-            fileNotFound(outForClientViaSocket, requestedBinaryOutForClient, fileRequested);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        } finally {
-            try {
-                logger.info("connection closed\n");
-                socket.close();
-            } catch (Exception e) {
-                logger.warning("Error closing stream : " + e.getMessage() + "\n");
-                System.err.println("Error closing stream : " + e.getMessage());
-            }
-        }
+        } catch (FileNotFoundException fnfe) { fileNotFound(outForClientViaSocket, requestedBinaryOutForClient, fileRequested);
+        } catch (IOException ioe) {   ioe.printStackTrace();
+        } finally {  try { socket.close(); } catch (Exception e) {  logger.warning("Error: " + e.getMessage() + "\n"); }}
     }
 
     private byte[] readFileData(File file, int fileLength) throws IOException {
         logger.info("read File Data " + file.getAbsolutePath() + " \n");
         FileInputStream fileIn = null;
         byte[] fileData = new byte[fileLength];
-
         try {
             fileIn = new FileInputStream(file);
             fileIn.read(fileData);
-        } finally {
-            if (fileIn != null)
-                fileIn.close();
-        }
+        } finally {  if (fileIn != null) fileIn.close();  }
         return fileData;
     }
 
@@ -171,21 +143,6 @@ public class WebServerABC implements Runnable {
             ioe.printStackTrace();
         }
     }
-
-/*    private static int getPortFromSystemInput(BufferedReader systemInput) {
-        try {
-            System.out.println("Please enter the port:");
-            int port = Integer.valueOf(systemInput.readLine());
-            return port;
-        } catch (NumberFormatException nfe) {
-            System.out.println("Please enter a valid port.");
-            return getPortFromSystemInput(systemInput);
-        } catch (IOException ioe) {
-            logger.warning("there was an error when trying to get system input for the port!!!!\n");
-            ioe.printStackTrace();
-            return 8080;
-        }
-    }*/
 
     private static String argsToString(String[] args) {
         String argsString = "";

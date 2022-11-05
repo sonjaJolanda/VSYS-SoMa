@@ -10,11 +10,9 @@ public class MySerializer {
     }
 
     private String readFilename() throws IOException {
-        String filename;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("filename> ");
-        filename = reader.readLine();
-        return filename;
+        return reader.readLine();
     }
 
     public void write(String text) throws IOException {

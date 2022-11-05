@@ -24,13 +24,8 @@ public class MyThread extends Thread {
     public void run() {
         AtomicReference<Boolean> result = new AtomicReference<>(null);
         try {
-            //System.out.println("listening to " + sendPort);
             result.set((Boolean) communication.receive(sendPort, true, true).getContent());
             isPrime = result.get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException | ClassNotFoundException e) { e.printStackTrace(); }
     }
 }

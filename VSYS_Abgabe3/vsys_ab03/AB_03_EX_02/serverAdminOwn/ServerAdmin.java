@@ -42,6 +42,7 @@ public class ServerAdmin {
     public void release(ServerConfig serverConfig) {
         synchronized (serverList) {
             serverList.push(serverConfig);
+            serverList.notify();
         }
     }
 }
